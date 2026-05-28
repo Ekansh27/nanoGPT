@@ -6,7 +6,7 @@
 
 **Update May 2026** ekansh has forked nanogpt into his gh and has made a new branch called "branch-practice" to push a meaningful commit onto the branch. this is for practice at his internship.
 
-**TKK-003 branch A:** this line was edited on the conflict-a branch.
+**TKK-003:** this line had conflicting edits from branches A and B — resolved by keeping both ideas combined into a single note.
 
 ---
 
