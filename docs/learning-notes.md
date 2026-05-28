@@ -27,3 +27,23 @@ Granularities:
 | Word-level | huge | not used — brittle to unseen words |
 
 The model itself never sees characters again — only ints and the embedding vectors they look up inside `model.py`. Embedding is a separate, learned step that happens *inside* the model, distinct from tokenization.
+
+## Generation
+
+`sample.py` generates text autoregressively: predict next token, append it, predict the next one, repeat. Two things to know:
+
+**Seeding.** Generation needs at least one token to condition on. The default seed is a newline:
+
+```python
+start = "\n"   # sample.py line 14
+```
+
+The seed gets tokenized, fed into the model, and the model returns a probability distribution over what comes next. Sampling from that distribution gives the next token. You can override `start` with any string (`"ROMEO:"`, `"To be or not"`) or load it from a file via `"FILE:prompt.txt"`.
+
+**Sampling knobs.**
+
+- `temperature` — scales the logits before softmax. <1 is sharper/more deterministic, >1 is flatter/more random.
+- `top_k` — restricts sampling to the K most likely tokens, zeroing out the rest. Cuts off the long tail of low-probability noise.
+- `max_new_tokens` — how long to generate before stopping.
+
+These are why the same seed and same checkpoint can produce different outputs across runs — there's randomness in the sampling step.
