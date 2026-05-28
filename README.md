@@ -6,6 +6,8 @@
 
 **Update May 2026** ekansh has forked nanogpt into his gh and has made a new branch called "branch-practice" to push a meaningful commit onto the branch. this is for practice at his internship.
 
+**TKK-002: change**
+
 ---
 
 **Update Nov 2025** nanoGPT has a new and improved cousin called [nanochat](https://github.com/karpathy/nanochat). It is very likely you meant to use/find nanochat instead. nanoGPT (this repo) is now very old and deprecated but I will leave it up for posterity.
